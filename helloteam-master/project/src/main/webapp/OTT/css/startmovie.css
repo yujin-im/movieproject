@@ -1,0 +1,107 @@
+.main-title{
+	color:white;
+	margin-bottom:50px;
+}
+
+.container-head{
+	width:300px;
+	height:400px;
+	background-color:gray;
+	position: absolute;
+	top:230px;
+
+
+		
+
+}
+
+
+.descrip{
+	width:700px;
+	color : white;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translateX(50%) translateY(100%);
+	animation-duration : 3s;
+	animation-name : slidein;
+}
+
+@keyframes slidein{
+	
+	from {
+		margin-left :-50%;
+		opacity : 0;
+		
+	}
+	to{
+		margin-left : 0%;
+		opacity : 1;
+	}
+}
+
+
+.list-group-item{
+	background-color: transparent;
+	color:white;
+}
+
+.pic-title {
+	color: white;
+	z-index:1000;
+	text-align:center;
+
+}
+.pic-box{
+	max-width:100%;
+	height:400px;
+	background-color:white;
+	
+}
+
+.list-group{
+	
+	width:300px;
+}
+
+
+
+.youtube{
+	position:relative;
+	height: 100vh;
+	background-color: black;
+	overflow:hidden;
+}
+
+.youtube .youtube__area{
+	width:1920px;
+	position:absolute;
+}
+
+.youtube .youtube__area::before{
+	content : "";
+	display:block;
+	width:100%;
+	height:0;
+	padding-top: 56.25%;
+}
+
+.youtube .youtube__cover{
+	position:absolute;
+	top: -0px;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color : rgba(0,0,0,.3);
+}
+
+#player{
+	
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+

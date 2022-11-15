@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+<title>상영 | 예정작</title>
+
+<link href="//m2.daumcdn.net/img-media/2010ci/Daum_favicon.ico" rel="shortcut icon">
+<link rel="stylesheet" type="text/css" href="//t1.daumcdn.net/media/kraken/movie/e9fff9c/PcCommonCssBundle.merged.css" />
+
+<script src="//t1.daumcdn.net/media/kraken/movie/e9fff9c/common.merged.js"></script>
+<script src="//t1.daumcdn.net/media/kraken/movie/e9fff9c/PcCommonScriptBundle.merged.js"></script><!-- 임시스크립트 -->
+<script src="//t1.daumcdn.net/cssjs/movie/v2/amchart/amcharts.js"></script>
+<script src="//t1.daumcdn.net/cssjs/movie/v2/amchart/serial.js"></script>
+
+<meta property="og:author" content="다음영화" />
+<meta property="og:site_name" content="다음영화" />
+    <meta property="og:title" content="상영 | 예정작" />
+    <meta property="og:image" content="https://t1.daumcdn.net/movie/common/og_default.png" />
+    <meta property="og:description" content="Daum영화에서 자세한 내용을 확인하세요!" />
+</head>
+
+<body class=""> 
+    <div class="direct-link"> 
+        <a href="#mainContent">본문 바로가기</a>
+        <a href="#gnbContent">메뉴 바로가기</a>
+    </div>
+    <div class="kakao_wrap "> 
+<header class="kakao_head" data-tiara-layer="gnb"> 
+    <div class="kakaohead_top">
+        <div class="inner_head" data-tiara-layer="service">
+            <h1 class="tit_daum">
+                <a href="https://daum.net" class="link_daum" data-tiara-layer="logo"><img src="https://t1.daumcdn.net/movie/movie2020/pc/rtn/logo_daum.png" width="44" height="18" class="logo_daum" alt="Daum"></a>
+                <a href="/main" class="tit_service" data-tiara-layer="movie"><span class="ir_wa">영화</span></a>
+            </h1>
+            <strong class="screen_out">관련 서비스</strong>
+            <ul class="list_relservice">
+                <li>
+                    <a href="https://news.daum.net" class="link_relservice" data-tiara-layer="news">뉴스</a>
+                </li>
+                <li>
+                    <a href="https://entertain.daum.net" class="link_relservice" data-tiara-layer="enter">연예</a>
+                </li>
+                <li>
+                    <a href="https://sports.daum.net" class="link_relservice" data-tiara-layer="sports">스포츠</a>
+                </li>
+                <li>
+                    <a href="https://auto.daum.net" class="link_relservice" data-tiara-layer="car">자동차</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="wrapMinidaum"></div>
+    <script type="text/javascript">
+        var minidaum_options = {
+            // background 타입 지정 관련 옵션. default: white.
+            bgType: "white", // white, dark, custom(no background)
+
+
+            // logout 시 return url 변경 여부 flag : default: false - 다음탑으로 이동
+            enableLogoutRetun: true, // false - 다음탑으로 이동, true - 현재페이지 혹은 returnUrl 값으로 이동
+            returnUrl: '', // default - 현재페이지(window.location.href)
+
+
+            // 실시간 이슈 사용 여부, default: false
+            disableHotissue: true, // false일 경우 사용, true일 경우 미사용
+
+            // 로고 사용 여부, default: false
+            disableLogo: true, // false일 경우 사용, true일 경우 미사용
+
+            // 티아라 사용 여부, default: false
+            disableTracker: false, // false일 경우 사용, true일 경우 미사용
+
+            // 플래시에 의한 레이어 가림 현상 방지 사용 여부, default: false
+            enableShield: false // false일 경우 미사용, true일 경우 사용
+        }
+    </script>
+    <script src="https://go.daum.net/minidaum_pc.daum" charset="utf-8" type="text/javascript"></script>
+
+
+    <div class="kakaohead_menu">
+        <div class="inner_head">
+            <nav id="gnbContent" class="gnb_movie">
+                <h2 class="screen_out">영화 메인메뉴</h2>
+                <ul data-tiara-layer="tab">
+                    <li class="home ">
+                        <a href="/main" class="link_gnb" data-tiara-layer="home">홈</a>
+                    </li>
+                    <li class="ranking ">
+                        <a href="/ranking/reservation" class="link_gnb" data-tiara-layer="ranking">랭킹</a>
+                        <ul class="list_subgnb">
+                            <li ><a href="/ranking/reservation" class="link_subgnb" data-tiara-layer="reserve">예매순위</a></li>
+                            <li ><a href="/ranking/boxoffice/weekly" class="link_subgnb" data-tiara-layer="boxoffice">박스오피스</a></li>
+                            <li ><a href="/ranking/ott" class="link_subgnb" data-tiara-layer="ott">OTT</a></li>
+                        </ul>
+                    </li>
+                    <li class="premovie on">
+                        <a href="/premovie/theater" class="link_gnb" data-tiara-layer="premovie">상영/예정작</a>
+                        <ul class="list_subgnb">
+                            <li ><a href="/premovie/theater" class="link_subgnb" data-tiara-layer="theater">영화관</a></li>
+                            <li class="on"><a href="/premovie/netflix" class="link_subgnb" data-tiara-layer="netflix">넷플릭스</a></li>
+                            <li ><a href="/premovie/watcha" class="link_subgnb" data-tiara-layer="watcha">왓챠</a></li>
+                        </ul>
+                    </li>
+                    <li class="contents ">
+                        <a href="/contents/news" class="link_gnb" data-tiara-layer="contents">콘텐츠</a>
+                        <ul class="list_subgnb">
+                            <li ><a href="/contents/news" class="link_subgnb" data-tiara-layer="news">영화 뉴스</a></li>
+                            <li ><a href="/contents/1boon" class="link_subgnb" data-tiara-layer="1boon">매거진</a></li>
+                            <li ><a href="/contents/brunch" class="link_subgnb" data-tiara-layer="brunch">브런치</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <a href="javascript:" class="link_search">
+                <span class="ico_movie ico_search">검색하기</span>
+            </a> 
+            <div class="moviesearch_wrap"> 
+                <h2 class="screen_out">검색</h2>
+                <form action="" class="d_sch" role="search">
+                    <fieldset class="fld_sch">
+                        <legend class="screen_out">검색어 입력폼</legend>
+                        <div class="box_search" data-tiara-layer="service search">
+                            <input type="input" class="tf_keyword" name="q" title="검색어 입력" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="영화, 인물 검색"  value="">
+                            <button type="button" class="btn_search"><span class="ico_movie ico_search">검색</span></button>
+                        </div>
+                    </fieldset>
+                </form>
+                <div class="suggest_layer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+        <hr class="hide">
+
+        <main class="kakao_content">
+<article id="mainContent" class="kakao_article">
+    <h2 class="screen_out">상영/예정작 본문</h2>
+    <div class="section_movie">
+        <div class="head_section" data-tiara-layer="head_section">
+            <h3 class="tit_section">
+                                    넷플릭스
+            </h3>
+            <p class="txt_noti"><span class="ico_movie ico_noti">알림</span>데이터 제공 환경에 따라 예정일은 변경될 수 있습니다.</p>
+            <div class="util_head">
+                <ul class="tab_g" role="tablist" data-tiara-layer="select">
+                    <li>
+                        <a href="?flag=C" class="link_tab" role="tab" aria-selected="true">종료예정</a><!-- 활성화시 aria-selected="true" 넣어주세요 -->
+                    </li>
+                    <li>
+                        <a href="?flag=Y" class="link_tab" role="tab" >공개예정</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="box_movie">
+                <h4 class="screen_out">영화 목록</h4>
+                <ul class="list_movieranking aniposter_ott">
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=131972" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F188f7a15babe47ac980fe3f32d00a5251558593133108" class="img_thumb" alt="오월천의 인생무한공사 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state state_dday">
+                                                    D-3
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=131972" class="link_txt" data-tiara-layer="moviename">오월천의 인생무한공사</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.22</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=105831" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F3adf584ca89902d68a8b88db75a3f39a912baab9" class="img_thumb" alt="요나와 버스터 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-6
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=105831" class="link_txt" data-tiara-layer="moviename">요나와 버스터</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.25</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=43031" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F201C341E49CA797802" class="img_thumb" alt="천사와 악마 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=43031" class="link_txt" data-tiara-layer="moviename">천사와 악마</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=1994" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F82125428787a97d115b0c010062ef1374e45b400" class="img_thumb" alt="비포 선라이즈 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=1994" class="link_txt" data-tiara-layer="moviename">비포 선라이즈</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=53578" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F133AD43A4D44459631" class="img_thumb" alt="퀸카로 살아남는 법 2 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=53578" class="link_txt" data-tiara-layer="moviename">퀸카로 살아남는 법 2</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=113362" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F3dcccf94cc7d84ed62813e616c778c1532419414" class="img_thumb" alt="잃어버린 형제 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=113362" class="link_txt" data-tiara-layer="moviename">잃어버린 형제</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=1878" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F1340FB10AB9706C931" class="img_thumb" alt="딥 블루 씨 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=1878" class="link_txt" data-tiara-layer="moviename">딥 블루 씨</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=42732" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F746d812cfc0995f15af89029e04c5b01e41f774d" class="img_thumb" alt="그 여자 작사 그 남자 작곡 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=42732" class="link_txt" data-tiara-layer="moviename">그 여자 작사 그 남자 작곡</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=56836" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F201348484DC796CC19" class="img_thumb" alt="세머테리 정션 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=56836" class="link_txt" data-tiara-layer="moviename">세머테리 정션</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=82344" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F2740EB4D5419443709" class="img_thumb" alt="나를 찾아줘 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=82344" class="link_txt" data-tiara-layer="moviename">나를 찾아줘</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=58793" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F191E083C4E8570290F" class="img_thumb" alt="인 타임 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=58793" class="link_txt" data-tiara-layer="moviename">인 타임</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=47789" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F116DB110B19BC4A375" class="img_thumb" alt="줄무늬 파자마를 입은 소년 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=47789" class="link_txt" data-tiara-layer="moviename">줄무늬 파자마를 입은 소년</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=36591" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F14110210A90B827932" class="img_thumb" alt="10일 안에 남자친구에게 차이는 법 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=36591" class="link_txt" data-tiara-layer="moviename">10일 안에 남자친구에게 차이는 법</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=1357" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F132052154C46E7EC7E" class="img_thumb" alt="네트 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=1357" class="link_txt" data-tiara-layer="moviename">네트</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=59492" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F184CE2484DF9F75615" class="img_thumb" alt="몬테 카를로 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=59492" class="link_txt" data-tiara-layer="moviename">몬테 카를로</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=17896" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F116F1B10ACBDBC162C" class="img_thumb" alt="맥시멈 리스크 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=17896" class="link_txt" data-tiara-layer="moviename">맥시멈 리스크</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=10260" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F15462010B2A1361EAA" class="img_thumb" alt="베스트 키드 2 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=10260" class="link_txt" data-tiara-layer="moviename">베스트 키드 2</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=153563" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F5f93984d0ffb73994d85d9b1dea7816ebd41c125" class="img_thumb" alt="러브 유 투 데스 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=153563" class="link_txt" data-tiara-layer="moviename">러브 유 투 데스</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=154342" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fa42ceca50e1bc8b303a48773b2d560591f934982" class="img_thumb" alt="언더 더 베드 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-12
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=154342" class="link_txt" data-tiara-layer="moviename">언더 더 베드</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.08.31</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=107288" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F303987bb5b24205cd2e90090953509ea040f0e80" class="img_thumb" alt="더 큐어 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-14
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=107288" class="link_txt" data-tiara-layer="moviename">더 큐어</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.09.02</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=145468" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fa2f5c7996fd1988265d14fe5f956e765c354e3a5" class="img_thumb" alt="올 마이 라이프 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-15
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=145468" class="link_txt" data-tiara-layer="moviename">올 마이 라이프</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.09.03</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=86946" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fb544759817bb3aecf921c2d7ecec283e95776a96" class="img_thumb" alt="퍼시픽 림: 업라이징 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-15
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=86946" class="link_txt" data-tiara-layer="moviename">퍼시픽 림: 업라이징</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.09.03</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=117534" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F0c9371837356388667b8102f53616ef04b67c9cc" class="img_thumb" alt="막달라 마리아: 부활의 증인 포스터">
+                                            <span class="txt_tag">
+                                                <span class="txt_state ">
+                                                    D-15
+                                                </span>
+                                            </span>
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=117534" class="link_txt" data-tiara-layer="moviename">막달라 마리아: 부활의 증인</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.09.03</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=144633" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Ff92885d5b67ee43e75fa6a5145882a3fb7cbd080" class="img_thumb" alt="프리키 데스데이 포스터">
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=144633" class="link_txt" data-tiara-layer="moviename">프리키 데스데이</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.09.04</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=143019" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F497ec9afc76e98e002558614f1106ed9932e277d" class="img_thumb" alt="렛 힘 고 포스터">
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=143019" class="link_txt" data-tiara-layer="moviename">렛 힘 고</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.09.04</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=114978" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F8faa442a4f3dc9fd0ab7bd6fb159c6e2a50e2963" class="img_thumb" alt="레이디 버드 포스터">
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=114978" class="link_txt" data-tiara-layer="moviename">레이디 버드</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.09.10</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item_poster">
+                                <a href="/moviedb/main?movieId=109076" class="thumb_item" data-tiara-layer="poster">
+                                    <div class="poster_movie">
+                                            <img src="https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F4cb757c7d71dc4f4647bf7c0d2393c440e8e1c03" class="img_thumb" alt="콜 미 바이 유어 네임 포스터">
+                                    </div>
+                                </a>
+                                <div class="thumb_cont">
+                                    <strong class="tit_item">
+                                        <a href="/moviedb/main?movieId=109076" class="link_txt" data-tiara-layer="moviename">콜 미 바이 유어 네임</a>
+                                    </strong>
+                                    <span class="txt_info">
+                                        종료
+                                        <span class="txt_num">22.09.14</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+</article>
+        </main>
+        <hr class="hide">
+
+<footer class="kakao_foot" data-tiara-layer="footer">
+    <div class="inner_foot" data-cloud="pc_news_footer">
+        <div class="direct_link">
+            <h2 class="screen_out">바로가기</h2>
+            <div class="direct_bundle">
+                <div class="item_bundle">
+                    <a href="/main" class="link_txt" data-tiara-layer="home">홈</a>
+                </div>
+                <div class="item_bundle">
+                    <a href="/ranking/reservation" class="link_txt" data-tiara-layer="ranking">랭킹</a>
+                </div>
+                <div class="item_bundle">
+                    <a href="/premovie/theater" class="link_txt" data-tiara-layer="premovie">상영예정작</a>
+                </div>
+                <div class="item_bundle">
+                    <a href="/contents/news" class="link_txt" data-tiara-layer="contents">콘텐츠</a>
+                </div>
+            </div>
+        </div>
+        <h2 class="screen_out">서비스 이용정보</h2>
+        <div class="footer_link">
+            <a href="//news.daum.net/info/intro" class="link_info" data-tiara-layer="info_daumnews">다음뉴스 소개</a>
+            <a href="https://magazine.daum.net/daummovie_notice" class="link_info" data-tiara-layer="notice">공지사항</a>
+            <a href="//news.daum.net/info/bbsrule" class="link_info" data-tiara-layer="bbsrule">게시물 운영원칙</a>
+            <a href="//policy.daum.net/info/info" class="link_info" data-tiara-layer="policy">서비스 약관/정책</a>
+            <a href="//with.kakao.com/media" class="link_info" data-tiara-layer="harmony">뉴스제휴</a>
+            <a href="//business.kakao.com/" class="link_info" data-tiara-layer="adinfo">비즈니스</a>
+            <a href="//cs.daum.net/redbell/top.html" class="link_info" data-tiara-layer="redbell">권리침해신고</a>
+            <a href="//cs.daum.net/faq/32.html" class="link_info" data-tiara-layer="movie_consumer">영화 고객센터</a>
+        </div>
+        <div class="footer_link">
+            <a href="//news.daum.net/info/newscenter24" class="link_info" data-tiara-layer="newscenter">24시간 뉴스센터</a>
+            <a href="//news.daum.net/info/edit" class="link_info" data-tiara-layer="principle">서비스원칙</a>
+            <span class="link_info">기사배열책임자 : 황유지</span>
+            <span class="link_info">청소년보호책임자 : 정현주</span>
+        </div>
+        <div class="info_copyright">
+            <strong class="info_warn">위 내용에 대한 저작권 및 법적 책임은 자료제공사 또는 <br>글쓴이에 있으며, Kakao의 입장과 다를 수 있습니다.</strong>
+            <small class="txt_copyright">Copyright © <a href="http://www.kakaocorp.com/" class="link_kakao">Kakao Corp.</a> All rights reserved.</small>
+        </div>
+        <a href="javascript:" class="btn_top" data-tiara-layer="top_button"><span class="inner_top"><span class="ico_movie ico_top"></span></span>TOP</a>
+    </div>
+</footer>
+        <script src="//t1.daumcdn.net/media/kraken/movie/e9fff9c/PcPreMovieOttBundle.merged.js"></script>
+
+<script src="//t1.daumcdn.net/media/kraken/movie/e9fff9c/PcCommonEventBundle.merged.js"></script>    </div>
+</body>
+</html>
